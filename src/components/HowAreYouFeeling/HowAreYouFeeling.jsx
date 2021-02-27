@@ -13,6 +13,7 @@ const handleSubmit = (event) => {
   let feelingValue = document.getElementById("feelingInput").value;
 
   // check if input field has been selected
+  // if input is not selected then alert them to select a number
   if (feelingValue === '') {
     alert('Please select a number');
   } else {
@@ -37,9 +38,7 @@ const handleSubmit = (event) => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-        
         <button onClick={handleSubmit}>Next</button>
-
     </>
   )
 }
