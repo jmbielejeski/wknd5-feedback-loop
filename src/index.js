@@ -22,6 +22,11 @@ const feedbackReducer = (state ={}, action) => {
         ...state,
         Understanding: action.payload
       }
+    case 'SET_SUPPORTED_FEEDBACK':
+      return {
+        ...state,
+        Supported: action.payload
+      }
     default:
       return state;
   }
