@@ -11,13 +11,27 @@ import { Provider } from 'react-redux';
 
 // Reducer to store each feedback answer as it is given
 const feedbackReducer = (state ={}, action) => {
-  return state;
+  switch (action.type) {
+    case 'SET_FEELING_FEEDBACK':
+      return {
+        ...state,
+        Feeling: action.payload
+      };
+    case 'SET_UNDERSTANDING_FEEDBACK':
+      return {
+        ...state,
+        Understanding: action.payload
+      }
+    default:
+      return state;
+  }
+ 
 }
 
 // Create store
 const storeInstance = createStore(
   combineReducers({
-
+    feedbackReducer,
   }),
   // Redux logger!
   applyMiddleware(logger)
