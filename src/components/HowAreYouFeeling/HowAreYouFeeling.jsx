@@ -18,9 +18,6 @@ function HowAreYouFeeling() {
       margin: theme.spacing(1),
       minWidth: 120,
     },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
   }));
 
   const classes = useStyles();
@@ -53,7 +50,7 @@ const handleSubmit = (event) => {
     <>
       <h1>How are you feeling today?</h1>
         <FormControl variant="filled" className={classes.formControl}></FormControl>
-          <InputLabel htmlFor="feeling-input">Feeling?</InputLabel>
+          <InputLabel htmlFor="feeling-input"></InputLabel>
             <Select 
               native 
               name="feeling-input" 

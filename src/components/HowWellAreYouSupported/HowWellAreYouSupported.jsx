@@ -19,9 +19,6 @@ function HowWellAreYouSupported() {
         margin: theme.spacing(1),
         minWidth: 120,
       },
-      selectEmpty: {
-        marginTop: theme.spacing(2),
-      },
     }));
   
     const classes = useStyles();
@@ -59,7 +56,7 @@ const handleBack = (event) => {
     <>
       <h1>How well are you being supported?</h1>     
       <FormControl variant="filled" className={classes.formControl}></FormControl>
-      <InputLabel htmlFor="supportedInput">Supported?</InputLabel>
+      <InputLabel htmlFor="supportedInput"></InputLabel>
         <Select
           native
           name="supportedInput"

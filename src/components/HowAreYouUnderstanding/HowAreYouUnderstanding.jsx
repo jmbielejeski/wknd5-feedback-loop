@@ -18,9 +18,6 @@ function HowAreYouUnderstanding() {
       margin: theme.spacing(1),
       minWidth: 120,
     },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
   }));
 
   const classes = useStyles();
@@ -58,7 +55,7 @@ const handleBack = (event) => {
     <>
       <h1>How well are you understanding the content?</h1>
         <FormControl variant="filled" className={classes.formControl}></FormControl>
-          <InputLabel htmlFor="understandingInput">Understanding?</InputLabel>
+          <InputLabel htmlFor="understandingInput"></InputLabel>
             <Select 
               native
               name="understandingInput" 
