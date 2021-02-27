@@ -32,6 +32,8 @@ const feedbackReducer = (state ={}, action) => {
         ...state,
         Comments: action.payload
       }
+    case 'CLEAR_FEEDBACK_REDUCER':
+      return {} 
     default:
       return state;
   }
