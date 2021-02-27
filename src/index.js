@@ -27,10 +27,15 @@ const feedbackReducer = (state ={}, action) => {
         ...state,
         Supported: action.payload
       }
+    case 'SET_COMMENTS_FEEDBACK':
+      return {
+        ...state,
+        Comments: action.payload
+      }
     default:
       return state;
   }
- 
+
 }
 
 // Create store

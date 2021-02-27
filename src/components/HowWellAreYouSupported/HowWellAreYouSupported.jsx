@@ -17,7 +17,7 @@ const handleSubmit = (event) => {
     type: 'SET_SUPPORTED_FEEDBACK',
     payload: supportedValue
   })
-  history.push('/supported')
+  history.push('/comments')
 }
   return (
     <>
