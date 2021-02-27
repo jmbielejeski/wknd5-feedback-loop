@@ -12,12 +12,17 @@ const handleSubmit = (event) => {
 
   let understandingValue = document.getElementById("understandingInput").value;
 
-  //dispatch chosen value to redux 
-  dispatch({
-    type: 'SET_UNDERSTANDING_FEEDBACK',
-    payload: understandingValue
-  })
-  history.push('/supported')
+   // check if input field has been selected
+  if (understandingValue === '') {
+    alert('Please select a number');
+  } else {
+    //dispatch chosen value to redux 
+    dispatch({
+      type: 'SET_UNDERSTANDING_FEEDBACK',
+      payload: understandingValue
+    })
+    history.push('/supported')
+  }
 }
 
   return (
@@ -26,6 +31,7 @@ const handleSubmit = (event) => {
       <h1>How well are you understanding the content?</h1>
       <label for="understandingInput">Understanding?</label>
         <select required name="understandingInput" id="understandingInput">
+          <option value="">Please choose a number</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

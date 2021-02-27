@@ -12,18 +12,25 @@ const handleSubmit = (event) => {
 
   let supportedValue = document.getElementById("supportedInput").value;
 
-  //dispatch chosen value to redux 
-  dispatch({
-    type: 'SET_SUPPORTED_FEEDBACK',
-    payload: supportedValue
-  })
-  history.push('/comments')
+  // check if input field has been selected
+  if (supportedValue === '') {
+    alert('Please select a number');
+  } else {
+    //dispatch chosen value to redux 
+    dispatch({
+      type: 'SET_SUPPORTED_FEEDBACK',
+      payload: supportedValue
+    })
+    history.push('/comments')
+  }
 }
+
   return (
     <>
       <h1>How well are you being supported?</h1>     
       <label for="supportedInput">Supported?</label>
         <select required name="supportedInput" id="supportedInput">
+          <option value="">Please choose a number</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

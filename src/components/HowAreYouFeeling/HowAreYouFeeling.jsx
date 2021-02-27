@@ -12,12 +12,17 @@ const handleSubmit = (event) => {
 
   let feelingValue = document.getElementById("feelingInput").value;
 
-  //dispatch chosen value to redux 
-  dispatch({
-    type: 'SET_FEELING_FEEDBACK',
-    payload: feelingValue
-  })
-  history.push('/understanding')
+  // check if input field has been selected
+  if (feelingValue === '') {
+    alert('Please select a number');
+  } else {
+    //dispatch chosen value to redux 
+    dispatch({
+      type: 'SET_FEELING_FEEDBACK',
+      payload: feelingValue
+    })
+    history.push('/understanding')
+  }
 }
 
   return (
@@ -25,6 +30,7 @@ const handleSubmit = (event) => {
       <h1>How are you feeling today?</h1>
         <label for="feelingInput">Feeling?</label>
           <select required name="feelingInput" id="feelingInput">
+            <option value="">Please choose a number</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

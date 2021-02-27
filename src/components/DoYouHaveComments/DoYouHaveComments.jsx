@@ -24,9 +24,10 @@ const handleSubmit = (event) => {
     <h1>Any comments you want to leave?</h1>
     <label for="commentsInput">Supported?</label>
       <input 
-      required 
-      type="text"
-      name="commentsInput" id="commentsInput">
+        required 
+        type="text"
+        name="commentsInput" id="commentsInput"
+        placeholder="Enter comments here">
       </input>
     <button onClick={handleSubmit}>Next</button>
 </>
