@@ -9,6 +9,10 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
+// Reducer to store each feedback answer as it is given
+const feedbackReducer = (state ={}, action) => {
+  return state;
+}
 
 // Create store
 const storeInstance = createStore(
