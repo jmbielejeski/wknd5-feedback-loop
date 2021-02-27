@@ -14,7 +14,12 @@ const feedbackObject = useSelector(store => store.feedbackReducer)
 const handleSubmit = (event) => {
   event.preventDefault();
 
-  axios.post
+  axios.post('/feedback', {
+    feeling: feedbackObject.Feeling,
+    understanding: feedbackObject.Understanding,
+    support: feedbackObject.Supported,
+    comments: feedbackObject.Comments
+  })
 
   history.push('/feedbackSubmitted')
 }
@@ -24,7 +29,7 @@ const handleSubmit = (event) => {
       <ul key={feedbackObject.id}>
         <li>Feelings: {feedbackObject.Feeling}</li>
         <li>Understanding: {feedbackObject.Understanding}</li>
-        <li>Supported: {feedbackObject.Supported}</li>
+        <li>Support: {feedbackObject.Supported}</li>
         <li>Comments: {feedbackObject.Comments}</li>
       </ul>
       <button onClick={handleSubmit}>Next</button>
