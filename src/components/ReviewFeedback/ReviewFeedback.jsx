@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { Button } from '@material-ui/core';
+
 
 function ReviewFeedback() {
 
@@ -38,8 +40,8 @@ const handleBack = (event) => {
         <li>Support: {feedbackObject.Supported}</li>
         <li>Comments: {feedbackObject.Comments}</li>
       </ul>
-      <button onClick={handleSubmit}>Next</button>
-      <button onClick={handleBack}>Back</button>
+      <Button onClick={handleSubmit}>Next</Button>
+      <Button onClick={handleBack}>Back</Button>
     </>
   )
 }

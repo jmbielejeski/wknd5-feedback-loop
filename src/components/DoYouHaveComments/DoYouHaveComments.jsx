@@ -1,5 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Button } from '@material-ui/core';
+
 
 function DoYouHaveComments() {
 
@@ -33,8 +35,8 @@ const handleBack = (event) => {
         name="commentsInput" id="commentsInput"
         placeholder="Enter comments here">
       </input>
-    <button onClick={handleSubmit}>Next</button>
-    <button onClick={handleBack}>Back</button>
+    <Button onClick={handleSubmit}>Next</Button>
+    <Button onClick={handleBack}>Back</Button>
 
 </>
   )

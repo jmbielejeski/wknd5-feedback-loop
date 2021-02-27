@@ -1,5 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Button } from '@material-ui/core';
+
 
 function HowAreYouFeeling() {
 
@@ -38,7 +40,7 @@ const handleSubmit = (event) => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-        <button onClick={handleSubmit}>Next</button>
+        <Button onClick={handleSubmit}>Next</Button>
     </>
   )
 }
