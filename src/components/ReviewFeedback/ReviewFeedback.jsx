@@ -23,6 +23,12 @@ const handleSubmit = (event) => {
 
   history.push('/feedbackSubmitted')
 }
+
+// button to go back to previous page so score can be updated/changed
+const handleBack = (event) => {
+  history.push('/comments');
+}
+
   return (
     <>
       <h1>Review Your Feedback</h1>
@@ -33,6 +39,7 @@ const handleSubmit = (event) => {
         <li>Comments: {feedbackObject.Comments}</li>
       </ul>
       <button onClick={handleSubmit}>Next</button>
+      <button onClick={handleBack}>Back</button>
     </>
   )
 }

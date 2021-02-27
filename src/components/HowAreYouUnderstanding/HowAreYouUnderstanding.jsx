@@ -25,6 +25,11 @@ const handleSubmit = (event) => {
   }
 }
 
+// button to go back to previous page so score can be updated/changed
+const handleBack = (event) => {
+  history.push('/');
+}
+
   return (
     
     <>
@@ -38,9 +43,8 @@ const handleSubmit = (event) => {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-      
       <button onClick={handleSubmit}>Next</button>
-
+      <button onClick={handleBack}>Back</button>
   </>
   )
 }
