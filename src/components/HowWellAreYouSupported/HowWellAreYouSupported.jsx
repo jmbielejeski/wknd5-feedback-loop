@@ -2,8 +2,30 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Button } from '@material-ui/core';
 
+// Material UI imports
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 
 function HowWellAreYouSupported() {
+
+    // stuff for material UI
+    const useStyles = makeStyles((theme) => ({
+      formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+      },
+      selectEmpty: {
+        marginTop: theme.spacing(2),
+      },
+    }));
+  
+    const classes = useStyles();
+    // end stuff for material UI
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -36,15 +58,20 @@ const handleBack = (event) => {
   return (
     <>
       <h1>How well are you being supported?</h1>     
-      <label for="supportedInput">Supported?</label>
-        <select required name="supportedInput" id="supportedInput">
+      <FormControl variant="filled" className={classes.formControl}></FormControl>
+      <InputLabel htmlFor="supportedInput">Supported?</InputLabel>
+        <Select
+          native
+          name="supportedInput"
+          id="supportedInput"
+          >
           <option value="">Please choose a number</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-        </select>
+        </Select>
       <Button onClick={handleSubmit}>Next</Button>
       <Button onClick={handleBack}>Back</Button>
   </>

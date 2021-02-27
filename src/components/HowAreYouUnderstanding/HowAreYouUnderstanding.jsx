@@ -2,8 +2,29 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Button } from '@material-ui/core';
 
+// Material UI imports
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 function HowAreYouUnderstanding() {
+
+  // stuff for material UI
+  const useStyles = makeStyles((theme) => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  }));
+
+  const classes = useStyles();
+  // end stuff for material UI
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -36,17 +57,22 @@ const handleBack = (event) => {
     
     <>
       <h1>How well are you understanding the content?</h1>
-      <label for="understandingInput">Understanding?</label>
-        <select required name="understandingInput" id="understandingInput">
-          <option value="">Please choose a number</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      <Button onClick={handleSubmit}>Next</Button>
-      <Button onClick={handleBack}>Back</Button>
+        <FormControl variant="filled" className={classes.formControl}></FormControl>
+          <InputLabel htmlFor="understandingInput">Understanding?</InputLabel>
+            <Select 
+              native
+              name="understandingInput" 
+              id="understandingInput"
+              >
+              <option value="">Please choose a number</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </Select>
+          <Button onClick={handleSubmit}>Next</Button>
+          <Button onClick={handleBack}>Back</Button>
   </>
   )
 }
