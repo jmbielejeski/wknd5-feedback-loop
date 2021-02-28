@@ -23,4 +23,29 @@ router.post('/', function (req, res) {
       })
 }); // end post route
 
+// GET route to grab feedback data from DB
+router.get('/', (req, res) => {
+  console.log('in get route');
+  pool.query(`SELECT * FROM "feedback" ORDER BY "id" DESC`)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log('error in GET feedback', error);
+      res.sendStatus(500);
+    })
+}) // end GET route
+
+// DELETE route to remove item from DB
+router.delete('/feedback/:id', (req, res) => {
+  pool.query(`DELETE FROM "feedback" WHERE id=$1` 
+  [req.params.id]).then((result) => {
+    res.sendStatus(200);
+  })
+  .catch((err) => {
+    console.log('error in delete', err);
+    res.sendStatus(500);
+  })
+})
+
 module.exports = router;

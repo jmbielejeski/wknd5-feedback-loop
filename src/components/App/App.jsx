@@ -16,6 +16,7 @@ import HowWellAreYouSupported from '../HowWellAreYouSupported/HowWellAreYouSuppo
 import DoYouHaveComments from '../DoYouHaveComments/DoYouHaveComments';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import FeedbackSubmitted from '../FeedbackSubmitted/FeedbackSubmitted';
+import Admin from '../Admin/Admin'
 
 function App() {
 
@@ -55,6 +56,11 @@ function App() {
         {/* route for feedback submitted page */}
         <Route path='/feedbackSubmitted'>
           <FeedbackSubmitted />
+        </Route>
+
+        {/* route for admin page */}
+        <Route path ='/admin'> 
+          <Admin />
         </Route>
       </Router>
     </div>
