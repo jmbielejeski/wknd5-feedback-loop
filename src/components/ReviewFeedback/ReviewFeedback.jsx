@@ -1,8 +1,32 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { Button } from '@material-ui/core';
+
+// material ui imports 
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
 function ReviewFeedback() {
+
+  // material ui 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      backgroundColor: theme.palette.background.paper,
+      alignItems: 'center',
+      justifyContent: 'center'
+      
+    },
+    
+  }));
+
+  const classes = useStyles();
+  // end material ui  
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -30,17 +54,17 @@ const handleBack = (event) => {
 }
 
   return (
-    <>
+    <div >
       <h1>Review Your Feedback</h1>
-      <ul key={feedbackObject.id}>
-        <li>Feelings: {feedbackObject.Feeling}</li>
-        <li>Understanding: {feedbackObject.Understanding}</li>
-        <li>Support: {feedbackObject.Supported}</li>
-        <li>Comments: {feedbackObject.Comments}</li>
-      </ul>
-      <button onClick={handleSubmit}>Next</button>
-      <button onClick={handleBack}>Back</button>
-    </>
+      <List key={feedbackObject.id}>
+        <ListItem className={classes.root}>Feelings: {feedbackObject.Feeling}</ListItem>
+        <ListItem className={classes.root}>Understanding: {feedbackObject.Understanding}</ListItem>
+        <ListItem className={classes.root}>Support: {feedbackObject.Supported}</ListItem>
+        <ListItem className={classes.root}>Comments: {feedbackObject.Comments}</ListItem>
+      </List>
+      <Button onClick={handleSubmit}>Next</Button>
+      <Button onClick={handleBack}>Back</Button>
+    </div>
   )
 }
 

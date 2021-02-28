@@ -1,7 +1,24 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Button } from '@material-ui/core';
+
+// material UI imports
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 function DoYouHaveComments() {
+
+  // material ui 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
+  }));
+  // end material ui
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -26,15 +43,14 @@ const handleBack = (event) => {
   return (
     <>
     <h1>Any comments you want to leave?</h1>
-    <label for="commentsInput">Supported?</label>
-      <input 
-        required 
-        type="text"
-        name="commentsInput" id="commentsInput"
+    <label for="commentsInput"></label>
+      <TextField 
+        name="commentsInput" 
+        id="commentsInput"
         placeholder="Enter comments here">
-      </input>
-    <button onClick={handleSubmit}>Next</button>
-    <button onClick={handleBack}>Back</button>
+      </TextField>
+    <Button onClick={handleSubmit}>Next</Button>
+    <Button onClick={handleBack}>Back</Button>
 
 </>
   )
