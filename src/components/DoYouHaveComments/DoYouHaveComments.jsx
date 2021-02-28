@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 // material UI imports
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+// end material UI imports
 
 
 function DoYouHaveComments() {
@@ -34,12 +35,15 @@ const handleSubmit = (event) => {
     type: 'SET_COMMENTS_FEEDBACK',
     payload: commentsValue
   })
+  // navigate to comments page
   history.push('/reviewFeedback')
-}
+} // end handleSubmit
 
-const handleBack = (event) => {
+// go back to supported page
+const goBackToPreviousPage = (event) => {
   history.push('/supported');
-}
+} // end goBackToPreviousPage
+
   return (
     <>
     <h1>Any comments you want to leave?</h1>
@@ -50,7 +54,7 @@ const handleBack = (event) => {
         placeholder="Enter comments here">
       </TextField>
     <Button onClick={handleSubmit}>Next</Button>
-    <Button onClick={handleBack}>Back</Button>
+    <Button onClick={goBackToPreviousPage}>Back</Button>
 
 </>
   )

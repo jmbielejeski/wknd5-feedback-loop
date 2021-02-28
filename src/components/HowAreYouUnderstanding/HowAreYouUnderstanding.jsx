@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+// end Material UI imports
 
 function HowAreYouUnderstanding() {
 
@@ -43,33 +44,32 @@ const handleSubmit = (event) => {
     })
     history.push('/supported')
   }
-}
+} // end handleSubmit
 
 // button to go back to previous page so score can be updated/changed
-const handleBack = (event) => {
+const goBackToPreviousPage = (event) => {
   history.push('/');
-}
+} // end goBackToPreviousPage
 
   return (
-    
-    <>
-      <h1>How well are you understanding the content?</h1>
-        <FormControl variant="filled" className={classes.formControl}></FormControl>
-          <InputLabel htmlFor="understandingInput"></InputLabel>
-            <Select 
-              native
-              name="understandingInput" 
-              id="understandingInput"
-              >
-              <option value="">Please choose a number</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </Select>
-          <Button onClick={handleSubmit}>Next</Button>
-          <Button onClick={handleBack}>Back</Button>
+  <>
+    <h1>How well are you understanding the content?</h1>
+      <FormControl variant="filled" className={classes.formControl}></FormControl>
+        <InputLabel htmlFor="understandingInput"></InputLabel>
+          <Select 
+            native
+            name="understandingInput" 
+            id="understandingInput"
+            >
+            <option value="">Please choose a number</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </Select>
+        <Button onClick={handleSubmit}>Next</Button>
+        <Button onClick={goBackToPreviousPage}>Back</Button>
   </>
   )
 }

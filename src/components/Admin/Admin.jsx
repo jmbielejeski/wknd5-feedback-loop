@@ -29,17 +29,18 @@ function Admin() {
 
   // useEffect to render results from DB
   useEffect(() => {
-    console.log('in useEffect');
+    //console.log('in useEffect');
     getFeedbackResults();
   }, [])
 
   // function to grab results from DB
   const getFeedbackResults = () => {
-    console.log('in getFeedbackResults');
+    //console.log('in getFeedbackResults');
 
     axios.get('/feedback')
       .then((res) => {
-        console.log('res.data', res.data);
+        //console.log('res.data', res.data);
+        // updating local state to hold DB Get results
         setFeedbackList(res.data);
       })
       .catch((err) => {
@@ -48,13 +49,14 @@ function Admin() {
   }
 
   const removeFeedback = (event) => {
-    console.log('in removeFeedback');
+    //console.log('in removeFeedback');
 
     const feedbackId = event.target.dataset.id;
 
     axios.delete(`/feedback/${feedbackId}`)
       .then((res) => {
-        console.log('feedback removed', res);
+        //console.log('feedback removed', res);
+        // refreshing the list after item is removed
         getFeedbackResults();
       })
       .catch((err) => {
@@ -76,6 +78,7 @@ function Admin() {
         </TableRow>
       </TableHead>
       <TableBody>
+        {/* using map to go over array of feedback and render to table on DOM */}
         {feedbackList.map(feedback => {
           return (
             <TableRow key={feedback.id}>
