@@ -26,6 +26,21 @@ function Admin() {
       })
   }
 
+  const removeFeedback = (event) => {
+    console.log('in removeFeedback');
+
+    const feedbackId = event.target.dataset.id;
+
+    axios.delete(`/feedback/${feedbackId}`)
+      .then((res) => {
+        console.log('feedback removed', res);
+        getFeedbackResults();
+      })
+      .catch((err) => {
+        console.log('error removing feedback', err);
+      })
+  }
+
   return (
   <>
     <h1>Feedback Results!</h1>
@@ -47,7 +62,7 @@ function Admin() {
               <td>{feedback.understanding}</td>
               <td>{feedback.support}</td>
               <td>{feedback.comments}</td>
-              <td><button>Delete</button></td>
+              <td><button data-id={feedback.id} onClick={removeFeedback}>Delete</button></td>
             </tr>
           )
       })}

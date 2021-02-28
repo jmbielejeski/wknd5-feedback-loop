@@ -26,6 +26,8 @@ router.post('/', function (req, res) {
 // GET route to grab feedback data from DB
 router.get('/', (req, res) => {
   console.log('in get route');
+
+
   pool.query(`SELECT * FROM "feedback" ORDER BY "id" DESC`)
     .then((result) => {
       res.send(result.rows);
@@ -37,9 +39,13 @@ router.get('/', (req, res) => {
 }) // end GET route
 
 // DELETE route to remove item from DB
-router.delete('/feedback/:id', (req, res) => {
-  pool.query(`DELETE FROM "feedback" WHERE id=$1` 
-  [req.params.id]).then((result) => {
+router.delete('/:id', (req, res) => {
+
+  let feedbackId = req.params.id;
+  
+  let sqlText = `DELETE FROM "feedback" WHERE id=$1`;
+
+  pool.query(sqlText, [feedbackId]).then((result) => {
     res.sendStatus(200);
   })
   .catch((err) => {
