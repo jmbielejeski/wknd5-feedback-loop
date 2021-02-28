@@ -1,7 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Material UI imports
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+// end material ui imports
+
 function Admin() {
+
+  // material ui 
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 650,
+    },
+  }); 
+  
+  const classes = useStyles();
+  // end material ui
 
   // setting local state to hold DB Get results
   let [feedbackList, setFeedbackList] = useState([]);
@@ -44,30 +65,30 @@ function Admin() {
   return (
   <>
     <h1>Feedback Results!</h1>
-    <table>
-      <thead>
-        <tr>
-          <td>Feeling</td>
-          <td>Comprehension</td>
-          <td>Support</td>
-          <td>Comments</td>
-          <td>Delete</td>
-        </tr>
-      </thead>
-      <tbody>
+    <Table className={classes.table} aria-label="simple table">
+      <TableHead>
+        <TableRow>
+          <TableCell align="right">Feeling</TableCell>
+          <TableCell align="right">Comprehension</TableCell>
+          <TableCell align="right">Support</TableCell>
+          <TableCell align="right">Comments</TableCell>
+          <TableCell align="right">Delete</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
         {feedbackList.map(feedback => {
           return (
-            <tr key={feedback.id}>
-              <td>{feedback.feeling}</td>
-              <td>{feedback.understanding}</td>
-              <td>{feedback.support}</td>
-              <td>{feedback.comments}</td>
-              <td><button data-id={feedback.id} onClick={removeFeedback}>Delete</button></td>
-            </tr>
+            <TableRow key={feedback.id}>
+              <TableCell align="right">{feedback.feeling}</TableCell>
+              <TableCell align="right">{feedback.understanding}</TableCell>
+              <TableCell align="right">{feedback.support}</TableCell>
+              <TableCell align="right">{feedback.comments}</TableCell>
+              <TableCell align="right"><button data-id={feedback.id} onClick={removeFeedback}>Delete</button></TableCell>
+            </TableRow>
           )
       })}
-      </tbody>
-    </table>
+      </TableBody>
+    </Table>
   </>
   )
 }
