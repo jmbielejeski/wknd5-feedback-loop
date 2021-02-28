@@ -63,7 +63,7 @@ const goBackToPreviousPage = (event) => {
         <ListItem className={classes.root}>Support: {feedbackObject.Supported}</ListItem>
         <ListItem className={classes.root}>Comments: {feedbackObject.Comments}</ListItem>
       </List>
-      <Button onClick={handleSubmit}>Next</Button>
+      <Button onClick={handleSubmit}>Submit Feedback</Button>
       <Button onClick={goBackToPreviousPage}>Back</Button>
     </div>
   )

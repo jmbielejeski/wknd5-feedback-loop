@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 // import components
+import Header from '../Header/Header';
 import HowAreYouFeeling from '../HowAreYouFeeling/HowAreYouFeeling';
 import HowAreYouUnderstanding from '../HowAreYouUnderstanding/HowAreYouUnderstanding';
 import HowWellAreYouSupported from '../HowWellAreYouSupported/HowWellAreYouSupported';
@@ -22,10 +23,7 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
-        <h4>Don't forget it!</h4>
-      </header>
+      <Header />
 
     <Router>
         {/* route for how ware you feeling page */}
