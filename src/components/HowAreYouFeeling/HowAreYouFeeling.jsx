@@ -42,9 +42,10 @@ const handleSubmit = (event) => {
       type: 'SET_FEELING_FEEDBACK',
       payload: feelingValue
     })
+    // navigate to understanding page
     history.push('/understanding')
   }
-}
+} // end handleSubmit
 
   return (
     <>
@@ -69,5 +70,3 @@ const handleSubmit = (event) => {
 }
 
 export default HowAreYouFeeling;
-
-{/*  */}

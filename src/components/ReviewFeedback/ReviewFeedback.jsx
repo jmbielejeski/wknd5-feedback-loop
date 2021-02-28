@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+// end material ui imports
 
 function ReviewFeedback() {
 
@@ -44,14 +45,14 @@ const handleSubmit = (event) => {
     support: feedbackObject.Supported,
     comments: feedbackObject.Comments
   })
-
+  // navigate to feedback submitted page
   history.push('/feedbackSubmitted')
-}
+} // end handleSubmit
 
 // button to go back to previous page so score can be updated/changed
-const handleBack = (event) => {
+const goBackToPreviousPage = (event) => {
   history.push('/comments');
-}
+} // end goBackToPreviousPage
 
   return (
     <div >
@@ -63,7 +64,7 @@ const handleBack = (event) => {
         <ListItem className={classes.root}>Comments: {feedbackObject.Comments}</ListItem>
       </List>
       <Button onClick={handleSubmit}>Next</Button>
-      <Button onClick={handleBack}>Back</Button>
+      <Button onClick={goBackToPreviousPage}>Back</Button>
     </div>
   )
 }

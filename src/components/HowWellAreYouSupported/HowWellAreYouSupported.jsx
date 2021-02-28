@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
+// End material UI imports
 
 function HowWellAreYouSupported() {
 
@@ -44,12 +44,12 @@ const handleSubmit = (event) => {
     })
     history.push('/comments')
   }
-}
+} // end handleSubmit
 
 // button to go back to previous page so score can be updated/changed
-const handleBack = (event) => {
+const goBackToPreviousPage = (event) => {
   history.push('/understanding');
-}
+} // end goBackToPreviousPage
 
 
   return (
@@ -70,7 +70,7 @@ const handleBack = (event) => {
           <option value="5">5</option>
         </Select>
       <Button onClick={handleSubmit}>Next</Button>
-      <Button onClick={handleBack}>Back</Button>
+      <Button onClick={goBackToPreviousPage}>Back</Button>
   </>
   )
 }

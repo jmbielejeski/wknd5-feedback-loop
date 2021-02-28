@@ -27,7 +27,7 @@ router.post('/', function (req, res) {
 router.get('/', (req, res) => {
   console.log('in get route');
 
-
+  // order from largest id to smallest so newest feedback is at top of list
   pool.query(`SELECT * FROM "feedback" ORDER BY "id" DESC`)
     .then((result) => {
       res.send(result.rows);

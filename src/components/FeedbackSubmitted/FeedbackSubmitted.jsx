@@ -2,21 +2,20 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Button } from '@material-ui/core';
 
-
-
 function FeedbackSubmitted() {
 
   const history = useHistory();
   const dispatch = useDispatch();
 
-
   // on button click reset state and send back to first page
   const handleSubmit = (event) => {
+    /// navigate back to main page
     history.push('/');
+    // clear out feedback reducer
     dispatch({
       type: 'CLEAR_FEEDBACK_REDUCER',
     })
-  }
+  } // end handleSubmit
 
   return (
     <>
